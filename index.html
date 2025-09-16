@@ -17,15 +17,15 @@
         }
         
         main.container {
-            background: url('fundoMoana2.jpg') no-repeat center center;
-            background-size: cover;
-            background-color: rgba(255, 255, 255, 0.9);
+            position: relative;
+            background-color: rgba(83, 160, 238, 0.9);
             background-blend-mode: lighten;
             padding: 30px;
             border-radius: 20px;
             max-width: 720px;
             margin: 40px auto;
             box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+            overflow: visible;
         }
         
         .titulo {
@@ -68,18 +68,24 @@
             display: flex;
             gap: 10px;
             overflow-x: auto;
+            /* permite rolagem horizontal */
+            overflow-y: hidden;
+            padding: 10px 0;
             scroll-snap-type: x mandatory;
             -webkit-overflow-scrolling: touch;
+            border-radius: 15px;
+            background-color: rgba(255, 255, 255, 0.2);
+            /* opcional, dá destaque */
         }
         
         .galeria img {
             width: 180px;
             height: 180px;
-            border-radius: 50%;
+            border-radius: 10px;
+            /* estilo retangular com cantos arredondados */
             object-fit: cover;
-            scroll-snap-align: center;
             flex-shrink: 0;
-            animation: flutuar 3s ease-in-out infinite;
+            scroll-snap-align: start;
         }
         
         @keyframes flutuar {
@@ -89,6 +95,15 @@
             }
             50% {
                 transform: translateY(-10px);
+            }
+        }
+        
+        @keyframes carrossel {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(-50%);
             }
         }
         
@@ -117,35 +132,79 @@
             font-weight: bold;
             color: #2d037b;
         }
+        /* Decorações laterais com opacidade e sombra */
+        
+        .decoracao {
+            position: absolute;
+            width: 180px;
+            height: auto;
+            z-index: 1;
+            opacity: 0.7;
+            filter: drop-shadow(0 0 15px rgba(0, 0, 0, 0.3));
+            pointer-events: none;
+            /* Não atrapalha interação do usuário */
+        }
+        
+        .topo-direita {
+            top: -20px;
+            right: -20px;
+        }
+        
+        .topo-esquerda {
+            top: -20px;
+            left: -20px;
+        }
+        
+        .base-direita {
+            bottom: -20px;
+            right: -20px;
+        }
+        
+        .base-esquerda {
+            bottom: -20px;
+            left: -20px;
+        }
     </style>
 </head>
 
 <body>
     <main class="container">
+        <!-- Decorações nas quatro laterais -->
+        <img src="monafig1.png" alt="Decoração Moana" class="decoracao topo-direita">
+        <img src="Maui.png" alt="Decoração Moana" class="decoracao topo-esquerda">
+        <img src="monafig1.png" alt="Decoração Moana" class="decoracao base-direita">
+        <img src="Maui.png" alt="Decoração Moana" class="decoracao base-esquerda">
+
+        <!-- Título -->
         <h1 class="titulo">Aniversário da Sofia</h1>
 
+        <!-- Parágrafo inicial -->
         <p class="paragrafo">
             Meu aniversário está chegando e você é meu(a) convidado(a) para celebrar comigo essa nova estação!
             <br><strong>Sua presença tornará esse dia ainda mais especial! 🥳</strong>
         </p>
 
+        <!-- Contador regressivo -->
         <div class="contador">
             <h2>Faltam:</h2>
             <div id="contador-tempo">Carregando...</div>
         </div>
 
+        <!-- Vídeo -->
         <div class="video-container">
             <video autoplay muted loop playsinline>
-        <source src="videoS.mp4" type="video/mp4" />
-        Seu navegador não suporta o vídeo HTML5.
-      </video>
+                <source src="videoS.mp4" type="video/mp4" />
+                Seu navegador não suporta o vídeo HTML5.
+            </video>
         </div>
 
+        <!-- Áudio de fundo -->
         <audio autoplay loop>
-      <source src="musicMinecraft.mp3" type="audio/mpeg" />
-      Seu navegador não suporta o áudio HTML5.
-    </audio>
+            <source src="musicMoana.mp3" type="audio/mpeg" />
+            Seu navegador não suporta o áudio HTML5.
+        </audio>
 
+        <!-- Galeria carrossel -->
         <div class="galeria">
             <img src="Foto1.jpeg" alt="Foto 1" />
             <img src="Foto2.jpeg" alt="Foto 2" />
@@ -161,13 +220,14 @@
 
         </div>
 
+        <!-- Parágrafo unificado -->
         <p class="paragrafo">
-            📌 Salve a data: 18/10/2025 ⏰ Horário: 12h <br>📍 Local: Espaço Bené, Rua Macauvas, 54 - Icaivera/Betim <br>✨🎈 Sugestões de presente: <br> 👚Tamanho de roupa: 8 | 👟 Tamanho de sapato: 29/30 <br>Eu amo brinquedos! 🧸🚗🪀 <br><br>Esperamos
-            você! 💖
+            📌 Salve a data: 18/10/2025 ⏰ Horário: 12h <br> 📍 Local: Espaço Bené, Rua Macauvas, 54 - Icaivera/Betim <br> ✨🎈 Sugestões de presente: 👚Tamanho de roupa: 8 | 👟 Tamanho de sapato: 29/30 <br> Eu amo brinquedos! 🧸🚗🪀 <br> Deixe aqui sua
+            mensagem de felicitação para mim! 💖
         </p>
-
     </main>
 
+    <!-- Script do contador regressivo -->
     <script>
         function atualizarContador() {
             const destino = new Date("2025-10-18T12:00:00").getTime();
@@ -179,10 +239,12 @@
                 el.innerHTML = "Já começou! 🎉";
                 return;
             }
+
             const dias = Math.floor(distancia / (1000 * 60 * 60 * 24));
             const horas = Math.floor((distancia % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
             const minutos = Math.floor((distancia % (1000 * 60 * 60)) / (1000 * 60));
             const segundos = Math.floor((distancia % (1000 * 60)) / 1000);
+
             el.innerHTML = `${dias} dias, ${horas}h, ${minutos}min, ${segundos}s`;
         }
 
