@@ -7,164 +7,8 @@
     <title>Niver Soso</title>
     <!-- Fonte estilo Moana (similar) -->
     <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
-    <style>
-        body {
-            margin: 0;
-            padding: 0;
-            background: url('fundoMoana.jpg') no-repeat center center fixed;
-            background-size: cover;
-            font-family: Verdana, Geneva, Tahoma, sans-serif;
-        }
-        
-        main.container {
-            position: relative;
-            background-color: rgba(83, 160, 238, 0.9);
-            background-blend-mode: lighten;
-            padding: 30px;
-            border-radius: 20px;
-            max-width: 720px;
-            margin: 40px auto;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
-            overflow: visible;
-        }
-        
-        .titulo {
-            font-family: 'Pacifico', cursive;
-            font-size: 3.5rem;
-            color: #004aad;
-            text-align: center;
-            margin-bottom: 20px;
-            font-weight: 800;
-            text-shadow: 3px 3px 0 #fff, -3px 3px 0 #fff, -3px -3px 0 #fff, 3px -3px 0 #fff;
-            background-color: #f8d7da;
-            border-radius: 15px;
-            padding: 15px;
-        }
-        
-        .video-container {
-            position: relative;
-            padding-bottom: 56.25%;
-            height: 0;
-            overflow: hidden;
-            border-radius: 20px;
-            margin-bottom: 30px;
-        }
-        
-        .video-container video {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            border: none;
-        }
-        
-        audio {
-            display: none;
-        }
-        
-        .galeria {
-            display: flex;
-            gap: 10px;
-            overflow-x: auto;
-            /* permite rolagem horizontal */
-            overflow-y: hidden;
-            padding: 10px 0;
-            scroll-snap-type: x mandatory;
-            -webkit-overflow-scrolling: touch;
-            border-radius: 15px;
-            background-color: rgba(255, 255, 255, 0.2);
-            /* opcional, dá destaque */
-        }
-        
-        .galeria img {
-            width: 180px;
-            height: 180px;
-            border-radius: 10px;
-            /* estilo retangular com cantos arredondados */
-            object-fit: cover;
-            flex-shrink: 0;
-            scroll-snap-align: start;
-        }
-        
-        @keyframes flutuar {
-            0%,
-            100% {
-                transform: translateY(0);
-            }
-            50% {
-                transform: translateY(-10px);
-            }
-        }
-        
-        @keyframes carrossel {
-            0% {
-                transform: translateX(0);
-            }
-            100% {
-                transform: translateX(-50%);
-            }
-        }
-        
-        .paragrafo {
-            font-size: 1.3rem;
-            text-align: center;
-            margin: 20px 0;
-            color: #333;
-            background-color: #f8d7da;
-            border-radius: 15px;
-            padding: 15px;
-        }
-        
-        .contador {
-            text-align: center;
-            font-size: 1.6rem;
-            color: #0047AB;
-            margin: 30px 0;
-            background-color: #f8d7da;
-            border-radius: 30px;
-            padding: 20px;
-        }
-        
-        #contador-tempo {
-            font-size: 1.8rem;
-            font-weight: bold;
-            color: #2d037b;
-        }
-        /* Decorações laterais com opacidade e sombra */
-        
-        .decoracao {
-            position: absolute;
-            width: 180px;
-            height: auto;
-            z-index: 1;
-            opacity: 0.7;
-            filter: drop-shadow(0 0 15px rgba(0, 0, 0, 0.3));
-            pointer-events: none;
-            /* Não atrapalha interação do usuário */
-        }
-        
-        .topo-direita {
-            top: -20px;
-            right: -20px;
-        }
-        
-        .topo-esquerda {
-            top: -20px;
-            left: -20px;
-        }
-        
-        .base-direita {
-            bottom: -20px;
-            right: -20px;
-        }
-        
-        .base-esquerda {
-            bottom: -20px;
-            left: -20px;
-        }
-    </style>
+    <link rel="stylesheet" href="estilo.css" />
+
 </head>
 
 <body>
@@ -180,8 +24,8 @@
 
         <!-- Parágrafo inicial -->
         <p class="paragrafo">
-            Meu aniversário está chegando e você é meu(a) convidado(a) para celebrar comigo essa nova estação!
-            <br><strong>Sua presença tornará esse dia ainda mais especial! 🥳</strong>
+            O oceano não veio 🥺​, mas não fique triste, você é meu convidado para participar de uma grande aventura na piscina! 😎​💦<br> Nossa pequena <strong>Sofia vai completar quatro aninhos</strong><br> venha celebrar com a gente esse grande momento!
+            <br>🌊​Traga seu traje e venha mergulhar nessa diversão! 🌴🐚
         </p>
 
         <!-- Contador regressivo -->
@@ -222,8 +66,7 @@
 
         <!-- Parágrafo unificado -->
         <p class="paragrafo">
-            📌 Salve a data: 18/10/2025 ⏰ Horário: 12h <br> 📍 Local: Espaço Bené, Rua Macauvas, 54 - Icaivera/Betim <br> ✨🎈 Sugestões de presente: 👚Tamanho de roupa: 8 | 👟 Tamanho de sapato: 29/30 <br> Eu amo brinquedos! 🧸🚗🪀 <br> Deixe aqui sua
-            mensagem de felicitação para mim! 💖
+            📌 Salve a data: 18/10/2025 ⏰ Horário: 12h <br> 📍 Local: Espaço Bené, Rua Macauvas, 54 -<br> Icaivera/Betim <br> ✨🎈 <strong>Pedimos a todos que leve 1kg de carne para churrasco e o que for beber </strong><br> espero você! 💖
         </p>
     </main>
 
