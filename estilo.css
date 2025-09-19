@@ -146,18 +146,18 @@ audio {
 }
 
 .topo-direita {
-    top: -20px;
-    right: -20px;
+    top: -10px;
+    right: -70px;
 }
 
 .topo-esquerda {
-    top: -20px;
-    left: -20px;
+    top: 30px;
+    left: -70px;
 }
 
 .base-direita {
     bottom: -20px;
-    right: -20px;
+    right: -40px;
 }
 
 .base-esquerda {
